@@ -1,17 +1,17 @@
 pub mod from_zed_theme;
 pub mod theme_descriptor;
+pub mod very_dark;
 pub mod vscode_dark;
 pub mod vscode_light;
-pub mod very_dark;
 use std::collections::HashMap;
 
 use itertools::Itertools;
 use my_proc_macros::hex;
 use once_cell::sync::OnceCell;
 use strum::IntoEnumIterator as _;
+pub use very_dark::very_dark;
 pub use vscode_dark::vscode_dark;
 pub use vscode_light::vscode_light;
-pub use very_dark::very_dark;
 
 use crate::{env::parse_env, grid::StyleKey, style::Style};
 

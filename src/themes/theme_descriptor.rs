@@ -1,6 +1,6 @@
 use std::{collections::HashMap, sync::LazyLock};
 
-use super::{from_zed_theme, vscode_dark, vscode_light, very_dark, Theme};
+use super::{from_zed_theme, very_dark, vscode_dark, vscode_light, Theme};
 use zed_theme::{get_custom_themes, get_zed_themes};
 
 #[derive(Clone, Debug, PartialEq)]
