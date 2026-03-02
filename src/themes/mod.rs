@@ -2,6 +2,7 @@ pub mod from_zed_theme;
 pub mod theme_descriptor;
 pub mod vscode_dark;
 pub mod vscode_light;
+pub mod very_dark;
 use std::collections::HashMap;
 
 use itertools::Itertools;
@@ -10,6 +11,7 @@ use once_cell::sync::OnceCell;
 use strum::IntoEnumIterator as _;
 pub use vscode_dark::vscode_dark;
 pub use vscode_light::vscode_light;
+pub use very_dark::very_dark;
 
 use crate::{env::parse_env, grid::StyleKey, style::Style};
 
@@ -136,9 +138,7 @@ impl Theme {
             StyleKey::UiSectionDivider => {
                 Style::new().background_color(self.ui.section_divider_background)
             }
-            StyleKey::UiFocusedTab => Style::new()
-                .foreground_color(self.ui.background_color)
-                .background_color(self.ui.text_foreground),
+            StyleKey::UiFocusedTab => self.ui.focused_tab,
         }
     }
 }
@@ -183,6 +183,7 @@ pub struct UiStyles {
     pub global_title: Style,
     pub window_title_focused: Style,
     pub window_title_unfocused: Style,
+    pub focused_tab: Style,
     pub parent_lines_background: Color,
     pub section_divider_background: Color,
     pub jump_mark_odd: Style,
